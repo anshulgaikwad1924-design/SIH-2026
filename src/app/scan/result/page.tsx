@@ -107,17 +107,17 @@ Return ONLY a raw JSON object (no markdown, no backticks) with this structure:
           };
           setData(dynamicData);
           saveToHistory(dynamicData);
-        } catch (e) {
+        } catch (e: any) {
           // Fallback if API fails
           console.error(e);
           const fallbackData = {
-            productName: 'Scanned Image (API Timeout)',
+            productName: 'Scanned Image (API Error)',
             category: 'UNKNOWN',
             legalPositioning: 'Manual Review Required.',
             score: 50,
             status: 'NEEDS REVIEW',
             scanType: 'ocr',
-            aiExplanation: 'AI server could not process the image. Please manually inspect the product for MRP, Weight, and Customer Care details.',
+            aiExplanation: 'ERROR DETAILS: ' + (e?.message || JSON.stringify(e)) + ' | Please ensure the API key is valid and the image is clear.',
             extractedFields: []
           };
           setData(fallbackData);
