@@ -1,10 +1,9 @@
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { Activity, CheckCircle, FileWarning } from "lucide-react";
 
 export default async function OfficerDashboard() {
-  const session = await getServerSession(authOptions);
+  // Mock session for GitHub Pages static export
+  const session = { user: { name: "Demo Officer", email: "officer@example.com", role: "OFFICER" } };
 
   if (!session || (session.user as any).role !== 'OFFICER') {
     redirect('/login');

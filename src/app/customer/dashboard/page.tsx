@@ -1,10 +1,9 @@
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { Package, ShieldAlert, History } from "lucide-react";
 
 export default async function CustomerDashboard() {
-  const session = await getServerSession(authOptions);
+  // Mock session for GitHub Pages static export
+  const session = { user: { name: "Demo User", email: "demo@example.com", role: "CUSTOMER" } };
 
   if (!session || (session.user as any).role !== 'CUSTOMER') {
     redirect('/login');
