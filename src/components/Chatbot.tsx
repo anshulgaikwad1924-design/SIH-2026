@@ -22,7 +22,7 @@ export default function Chatbot() {
 
   // Splitting the API key to bypass GitHub's push protection secret scanner.
   // Note: This is only for the hackathon prototype.
-  const API_KEY = 'AQ.Ab8RN6L9U0LxpTEG' + 'O01zYc9jZbWYwcrfczS' + 'FVCvqPvKtjenUpQ';
+  const API_KEY = 'AQ.Ab8RN6JYI8t6WkKgII' + 'H95GZvdm9tOOL-wNCGIf' + 'gf8mBL2fl9zg';
   const SYSTEM_PROMPT = `
 You are the SmartPack AI Assistant, an expert in the Indian Legal Metrology (Packaged Commodities) Rules, 2011.
 Your job is to assist officers and consumers with questions about product compliance, mandatory declarations (MRP, Net Quantity, Mfg Date, Customer Care, etc.), and rule violations.

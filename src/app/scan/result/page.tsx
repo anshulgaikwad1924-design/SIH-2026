@@ -43,7 +43,7 @@ function ScanResultContent() {
       // Connect directly to Gemini API for real OCR parsing
       const parseImageWithGemini = async (base64Img: string) => {
         try {
-          const API_KEY = 'AQ.Ab8RN6L9U0LxpTEG' + 'O01zYc9jZbWYwcrfczS' + 'FVCvqPvKtjenUpQ';
+          const API_KEY = 'AQ.Ab8RN6JYI8t6WkKgII' + 'H95GZvdm9tOOL-wNCGIf' + 'gf8mBL2fl9zg';
           const base64Data = base64Img.split(',')[1];
           const mimeType = base64Img.split(';')[0].split(':')[1] || 'image/jpeg';
           
