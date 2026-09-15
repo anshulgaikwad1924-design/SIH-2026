@@ -68,7 +68,7 @@ If it IS a product, return ONLY a raw JSON object (no markdown, no backticks) wi
   "customerCare": "Detected Customer Care Number/Email or 'Not Found'"
 }`;
           
-          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${API_KEY}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -81,7 +81,10 @@ If it IS a product, return ONLY a raw JSON object (no markdown, no backticks) wi
             })
           });
 
-          if (!response.ok) throw new Error('API failed');
+          if (!response.ok) {
+            const errText = await response.text();
+            throw new Error(`Google API Failed (${response.status}): ${errText}`);
+          }
           const data = await response.json();
           let jsonText = data.candidates[0].content.parts[0].text;
           jsonText = jsonText.replace(/```json/g, '').replace(/```/g, '').trim();
