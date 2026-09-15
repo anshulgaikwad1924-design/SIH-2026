@@ -43,12 +43,22 @@ function ScanResultContent() {
       // Connect directly to Gemini API for real OCR parsing
       const parseImageWithGemini = async (base64Img: string) => {
         try {
-          const API_KEY = 'AQ.Ab8RN6IFHxAKYYUW' + '0hIRIoisivSfvWewCyk' + 'Jm2hK5yatygguMA';
+          const API_KEY = 'AQ.Ab8RN6L9U0LxpTEG' + 'O01zYc9jZbWYwcrfczS' + 'FVCvqPvKtjenUpQ';
           const base64Data = base64Img.split(',')[1];
           const mimeType = base64Img.split(';')[0].split(':')[1] || 'image/jpeg';
           
-          const prompt = `You are a Legal Metrology AI. Analyze this product label image.
-Return ONLY a raw JSON object (no markdown, no backticks) with this structure:
+          const prompt = `You are a Legal Metrology AI. Analyze this image.
+If the image is NOT a product packaging or label (e.g. empty wall, random photo, person), return ONLY this raw JSON object:
+{
+  "productName": "Invalid Scan (Not a Product)",
+  "mrp": "Not Found",
+  "netQuantity": "Not Found",
+  "mfgDate": "Not Found",
+  "manufacturer": "Not Found",
+  "customerCare": "Not Found"
+}
+
+If it IS a product, return ONLY a raw JSON object (no markdown, no backticks) with this structure:
 {
   "productName": "Detected product name or category",
   "mrp": "Detected MRP or 'Not Found'",
