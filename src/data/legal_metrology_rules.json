@@ -1,0 +1,626 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "title": "The Legal Metrology (Packaged Commodities) Rules, 2011",
+    "document": "9 The Legal Metrology (Package Commodities) Rules, 2011.pdf",
+    "source_type": "User-provided PDF",
+    "commencement": "2011-04-01",
+    "note": "Implementation aid derived only from the supplied PDF. Not a substitute for the legal text. Verify current amendments before production legal use."
+  },
+  "implementation_principles": [
+    "Determine applicability before validating a field.",
+    "Do not apply one universal checklist to every product.",
+    "Use NOT_APPLICABLE where a requirement does not apply.",
+    "Image/OCR screening cannot by itself prove actual physical quantity or final legal compliance.",
+    "Final legal verification remains with an authorized Legal Metrology officer.",
+    "Every finding must retain its rule reference and evidence."
+  ],
+  "status_values": [
+    "VERIFIED",
+    "MISSING",
+    "MISMATCH",
+    "POTENTIAL_ISSUE",
+    "UNCERTAIN",
+    "NOT_APPLICABLE"
+  ],
+  "applicability": {
+    "rule_3_retail_chapter": {
+      "exclusions": [
+        "Packages containing more than 25 kg or 25 litre, excluding cement and fertilizer sold in bags up to 50 kg",
+        "Packaged commodities meant for industrial or institutional consumers"
+      ]
+    },
+    "rule_5_standard_packs": {
+      "description": "Commodities in the Second Schedule are to be packed in specified standard quantities."
+    }
+  },
+  "rules": [
+    {
+      "id": "R6-A",
+      "rule": "6(1)(a)",
+      "title": "Manufacturer / packer / importer",
+      "requirements": [
+        "manufacturer name and address",
+        "packer name and address where manufacturer is not packer",
+        "importer name and address for imported package"
+      ],
+      "validation": [
+        "presence",
+        "OCR extraction",
+        "address completeness screening"
+      ]
+    },
+    {
+      "id": "R6-B",
+      "rule": "6(1)(b)",
+      "title": "Commodity identity",
+      "requirements": [
+        "common or generic name",
+        "for multiple products: name and number or quantity of each product"
+      ],
+      "validation": [
+        "presence",
+        "OCR extraction"
+      ]
+    },
+    {
+      "id": "R6-C",
+      "rule": "6(1)(c)",
+      "title": "Net quantity",
+      "requirements": [
+        "net quantity",
+        "standard unit of weight or measure when sold by weight/measure",
+        "number when sold by number"
+      ],
+      "validation": [
+        "presence",
+        "numeric parsing",
+        "unit validation"
+      ]
+    },
+    {
+      "id": "R6-D",
+      "rule": "6(1)(d)",
+      "title": "Month and year",
+      "requirements": [
+        "month and year of manufacture, pre-packing or import"
+      ],
+      "conditions": [
+        "Food articles have the stated food-law proviso",
+        "Seeds labeled/certified under the stated Seeds Act provisions have the stated proviso",
+        "Cosmetics have the stated Drugs and Cosmetics Rules proviso"
+      ]
+    },
+    {
+      "id": "R6-E",
+      "rule": "6(1)(e)",
+      "title": "Retail sale price",
+      "requirements": [
+        "retail sale price declaration where applicable"
+      ],
+      "validation": [
+        "presence",
+        "OCR price extraction"
+      ]
+    },
+    {
+      "id": "R10",
+      "rule": "10",
+      "title": "Name and address",
+      "requirements": [
+        "conspicuous name and complete address",
+        "actual corporate/business name",
+        "importer name and complete address for imported packages",
+        "where manufactured outside India but packed in India: packer/importer in India on principal display panel"
+      ],
+      "special_case": "For packages of capacity 5 cubic cm or less, the stated identification mark/inscription proviso applies."
+    },
+    {
+      "id": "R11",
+      "rule": "11",
+      "title": "General quantity provisions",
+      "requirements": [
+        "exclude wrappers/non-commodity material from net quantity",
+        "quantity should correspond to net quantity received by consumer where environmental variation is not relevant",
+        "where negligible variation exists, account for it so consumer receives not less than declared quantity",
+        "'when packed' qualification only for significant variation cases specified in Third Schedule"
+      ]
+    },
+    {
+      "id": "R12",
+      "rule": "12",
+      "title": "Manner of quantity declaration",
+      "requirements": [
+        "accurate and adequate quantity information",
+        "mass for solid/semi-solid/viscous/solid-liquid mixture except Fourth Schedule cases",
+        "length for linear measure",
+        "area for area measure",
+        "volume for liquid/cubic measure",
+        "number for commodities sold by number",
+        "dimensions/number when needed for full information",
+        "additional information on same panel",
+        "no misleading quantity wording"
+      ]
+    },
+    {
+      "id": "R13",
+      "rule": "13",
+      "title": "Units",
+      "unit_rules": {
+        "less_than_1_kg": "gram",
+        "less_than_1_m": "centimetre",
+        "less_than_1_sq_m": "square decimetre",
+        "less_than_1_cubic_m": "cubic centimetre",
+        "less_than_1_cubic_dm": "cubic centimetre",
+        "less_than_1_litre": "millilitre",
+        "equal_or_more_1_kg": "kilogram; fractions may use decimal sub-multiples or grams",
+        "equal_or_more_1_m": "metre; fractions may use decimal sub-multiples or centimetres",
+        "equal_or_more_1_sq_m": "square metre; fractions may use decimal sub-multiples",
+        "equal_or_more_1_cubic_m": "cubic metre; fractions may use decimal sub-multiples",
+        "equal_or_more_1_litre": "litre; fractions may use decimal sub-multiples"
+      },
+      "additional": [
+        "No non-SI system for net quantity",
+        "For items sold by number, symbol should be N or U",
+        "Dozen, score, gross, great gross or like expressions must not be specified"
+      ]
+    },
+    {
+      "id": "R14",
+      "rule": "14",
+      "title": "Dimensions of certain commodities",
+      "applicability": [
+        "bed-sheets",
+        "hemmed fabric materials",
+        "dhoties",
+        "sarees",
+        "napkins",
+        "pillow-covers",
+        "towels",
+        "table cloths",
+        "similar commodities"
+      ],
+      "requirements": [
+        "number and finished-size dimensions",
+        "for multiple different dimensions: dimensions and retail sale price of each piece",
+        "dimensions and sale price on each individual piece"
+      ]
+    },
+    {
+      "id": "R15",
+      "rule": "15",
+      "title": "Dimensions/weight related to price",
+      "applicability": "conditional",
+      "requirements": [
+        "where dimensions and weight or combination relate to price, declaration includes relevant dimensions/weight/combination"
+      ]
+    },
+    {
+      "id": "R16",
+      "rule": "16",
+      "title": "Usable sheets",
+      "applicability": [
+        "aluminum foil",
+        "facial tissues",
+        "waxed paper",
+        "toilet paper",
+        "other sheet commodities"
+      ],
+      "requirements": [
+        "number of usable sheets",
+        "dimensions of each sheet"
+      ]
+    },
+    {
+      "id": "R17",
+      "rule": "17",
+      "title": "Container-type commodities",
+      "requirements": [
+        "bag type: number of bags plus linear dimensions",
+        "rectangular/similar: number plus length, width and depth if required",
+        "round: number plus diameter and depth if necessary",
+        "where label references relate use to capacity: include relevant standard weight/measure"
+      ]
+    },
+    {
+      "id": "R18",
+      "rule": "18",
+      "title": "Wholesale/retail dealer provisions",
+      "requirements": [
+        "packaged commodity offered/sold/stored should comply",
+        "sale price must not exceed retail sale price",
+        "retail sale price must not be obliterated, smudged or altered",
+        "manufacturer/packer/importer must not alter printed price on wrapper once printed and used for packing"
+      ]
+    },
+    {
+      "id": "R19",
+      "rule": "19",
+      "title": "Inspection at manufacturer/packer",
+      "requirements": [
+        "authorized person may examine/test packages",
+        "sampling per Fifth Schedule",
+        "tests per Sixth Schedule",
+        "report records declarations, actual net quantity and extent of error"
+      ]
+    },
+    {
+      "id": "R20",
+      "rule": "20",
+      "title": "Action after inspection",
+      "requirements": [
+        "procedure applies where statistical average is below declared quantity",
+        "procedure applies where deficiency exceeds maximum permissible error",
+        "procedure applies where required declarations are absent"
+      ],
+      "prototype_use": "Officer workflow guidance only; do not automate punitive/legal action."
+    },
+    {
+      "id": "R21",
+      "rule": "21",
+      "title": "Inspection at wholesale/retail premises",
+      "requirements": [
+        "tests ordinarily not carried out except listed conditions",
+        "verify quantity against declaration",
+        "compare deficiency with maximum permissible error",
+        "missing declarations may lead to source enquiries"
+      ],
+      "prototype_use": "Officer inspection workflow."
+    },
+    {
+      "id": "R22",
+      "rule": "22",
+      "title": "Maximum permissible error",
+      "requirements": [
+        "use First Schedule",
+        "consider unavoidable weighing/measuring/counting variation",
+        "consider ordinary climate/transport/storage variation",
+        "consider packaging/container effects"
+      ]
+    },
+    {
+      "id": "R23",
+      "rule": "23",
+      "title": "Deceptive packages",
+      "requirements": [
+        "where quantity agrees but package is deceptive, repacking/relabeling may be required",
+        "deceptive package means a package designed to give an exaggerated or misleading impression of quantity"
+      ],
+      "prototype_use": "Potential issue requiring officer review; image alone should not conclusively determine deception."
+    },
+    {
+      "id": "R24",
+      "rule": "24",
+      "title": "Wholesale package declarations",
+      "applicability": "wholesale_package",
+      "requirements": [
+        "legible, definite, plain and conspicuous declaration",
+        "manufacturer/importer name and address or packer where applicable",
+        "identity of commodity",
+        "total number of retail packages or net quantity in standard units"
+      ]
+    },
+    {
+      "id": "R25",
+      "rule": "25",
+      "title": "Export packages sold in India",
+      "applicability": "export_package_sold_in_india",
+      "requirements": [
+        "export package must be repacked or relabeled according to Chapter II before sale in India"
+      ]
+    },
+    {
+      "id": "R26",
+      "rule": "26",
+      "title": "Exemptions",
+      "conditions": [
+        "net weight/measure 10 g or 10 ml or less, subject to the stated proviso for 10g–20g / 10ml–20ml MRP and net quantity",
+        "fast food items packed by restaurant/hotel and the like",
+        "scheduled and non-scheduled formulations covered by the stated Drugs (Price Control) Order",
+        "agricultural farm produce in packages above 50 kg as stated in the PDF"
+      ]
+    },
+    {
+      "id": "R31",
+      "rule": "31",
+      "title": "Advertisement mentioning retail sale price",
+      "requirements": [
+        "advertisement mentioning retail sale price must declare net quantity or number",
+        "font size of net quantity in advertisement must be same as retail sale price"
+      ],
+      "prototype_use": "Optional separate advertisement module."
+    }
+  ],
+  "presentation_checks": {
+    "checks": [
+      "definite/plain/conspicuous declarations where stated",
+      "legibility",
+      "declaration should not require reading through liquid commodity",
+      "outside container/wrapper requirements subject to stated transparency proviso",
+      "Hindi (Devanagari) or English permitted; other languages may be additional"
+    ],
+    "automation_policy": "Use computer vision as screening. Mark precise font-size/physical-measurement questions UNCERTAIN when image quality cannot establish them."
+  },
+  "maximum_permissible_error": {
+    "source": "First Schedule / Rule 22",
+    "weight_or_volume": [
+      {
+        "range": "up_to_50_g_or_ml",
+        "type": "percent",
+        "value": 9
+      },
+      {
+        "range": "50_to_100_g_or_ml",
+        "type": "absolute_g_or_ml",
+        "value": 4.5
+      },
+      {
+        "range": "100_to_200_g_or_ml",
+        "type": "percent",
+        "value": 4.5
+      },
+      {
+        "range": "200_to_300_g_or_ml",
+        "type": "absolute_g_or_ml",
+        "value": 9
+      },
+      {
+        "range": "300_to_500_g_or_ml",
+        "type": "percent",
+        "value": 3
+      },
+      {
+        "range": "500_to_1000_g_or_ml",
+        "type": "absolute_g_or_ml",
+        "value": 15
+      },
+      {
+        "range": "1000_to_10000_g_or_ml",
+        "type": "percent",
+        "value": 1.5
+      },
+      {
+        "range": "10000_to_15000_g_or_ml",
+        "type": "absolute_g_or_ml",
+        "value": 150
+      },
+      {
+        "range": "more_than_15000_g_or_ml",
+        "type": "percent",
+        "value": 1
+      }
+    ],
+    "length_area_number": [
+      {
+        "type": "length",
+        "value": "2% up to 10 m; thereafter 1%"
+      },
+      {
+        "type": "area",
+        "value": "4% up to 10 sq m; thereafter 1%"
+      },
+      {
+        "type": "number",
+        "value": "2%"
+      }
+    ],
+    "rounding": "For percentage errors, the supplied First Schedule states rounding to nearest one-tenth g/ml up to 1000 g/ml and next whole g/ml above 1000 g/ml."
+  },
+  "second_schedule_verified_examples": [
+    {
+      "commodity": "Baby food",
+      "quantities": [
+        "100g",
+        "200g",
+        "300g",
+        "400g",
+        "500g",
+        "600g",
+        "700g",
+        "800g",
+        "900g",
+        "1kg",
+        "2kg",
+        "5kg",
+        "10kg"
+      ]
+    },
+    {
+      "commodity": "Weaning food",
+      "quantities": [
+        "100g",
+        "200g",
+        "300g",
+        "400g",
+        "500g",
+        "600g",
+        "700g",
+        "800g",
+        "900g",
+        "1kg",
+        "2kg",
+        "5kg",
+        "10kg"
+      ]
+    },
+    {
+      "commodity": "Biscuits",
+      "quantities": [
+        "25g",
+        "50g",
+        "75g",
+        "100g",
+        "150g",
+        "200g",
+        "250g",
+        "300g",
+        "multiples of 100g up to 1kg"
+      ]
+    },
+    {
+      "commodity": "Rice (powdered), flour, atta, rawa and suji",
+      "quantities": [
+        "100g",
+        "200g",
+        "500g",
+        "1kg",
+        "2kg",
+        "5kg",
+        "multiples of 5kg thereafter"
+      ]
+    },
+    {
+      "commodity": "Salt",
+      "quantities": [
+        "below 50g in multiples of 10g",
+        "50g",
+        "100g",
+        "200g",
+        "500g",
+        "750g",
+        "1kg",
+        "2kg",
+        "5kg",
+        "multiples of 5kg thereafter"
+      ]
+    },
+    {
+      "commodity": "Aerated soft drinks / non-alcoholic beverages",
+      "quantities": [
+        "65ml fruit-based only",
+        "100ml",
+        "125ml fruit-based only",
+        "150ml",
+        "200ml",
+        "250ml",
+        "300ml",
+        "330ml cans only",
+        "500ml",
+        "750ml",
+        "1L",
+        "1.5L",
+        "2L",
+        "3L",
+        "4L",
+        "5L"
+      ]
+    },
+    {
+      "commodity": "Mineral water and drinking water",
+      "quantities": [
+        "100ml",
+        "150ml",
+        "200ml",
+        "250ml",
+        "300ml",
+        "500ml",
+        "750ml",
+        "1L",
+        "1.5L",
+        "2L",
+        "3L",
+        "4L",
+        "5L"
+      ]
+    },
+    {
+      "commodity": "Cement in bags",
+      "quantities": [
+        "1kg",
+        "2kg",
+        "5kg",
+        "10kg",
+        "20kg",
+        "25kg",
+        "40kg (white cement only)",
+        "50kg"
+      ]
+    },
+    {
+      "commodity": "Paint/varnish/etc. excluding paste/solid paint",
+      "quantities": [
+        "50ml",
+        "100ml",
+        "200ml",
+        "500ml",
+        "1L",
+        "2L",
+        "3L",
+        "4L",
+        "5L",
+        "multiples of 5L thereafter"
+      ]
+    },
+    {
+      "commodity": "Paste paint and solid paint",
+      "quantities": [
+        "500g",
+        "1kg",
+        "1.5kg",
+        "2kg",
+        "3kg",
+        "5kg",
+        "7kg",
+        "multiples of 5kg thereafter"
+      ]
+    },
+    {
+      "commodity": "Base paint",
+      "quantities": [
+        "450ml",
+        "500ml",
+        "900ml",
+        "925ml",
+        "950ml",
+        "975ml",
+        "1L",
+        "3.6L",
+        "3.7L",
+        "3.8L",
+        "3.9L",
+        "4L",
+        "no restriction above 4L"
+      ]
+    }
+  ],
+  "third_schedule_when_packed_verified": [
+    "all kinds of soaps",
+    "lotions",
+    "cream other than cream of milk"
+  ],
+  "fifth_schedule_sampling": [
+    {
+      "lot_size": "less_than_4000",
+      "sample_size": 32
+    },
+    {
+      "lot_size": "more_than_4000",
+      "sample_size": 80
+    }
+  ],
+  "sixth_schedule_physical_measurement": {
+    "weight": "Suitable working standard weights/balances or other suitable declared measures; equipment should function properly.",
+    "liquid_volume": "Appropriate volume measurement or applicable weight/specific-gravity method.",
+    "length": "Calibrated steel tape or suitable calibrated instrument.",
+    "number": "Actual counting; packages may be opened.",
+    "prototype_rule": "Do not claim camera OCR measures actual contents. Provide officer measurement mode."
+  },
+  "rule_engine_output": {
+    "product_id": "string",
+    "scan_id": "string",
+    "rule_id": "string",
+    "rule_number": "string",
+    "field": "string",
+    "expected": "string|null",
+    "detected": "string|null",
+    "status": "VERIFIED|MISSING|MISMATCH|POTENTIAL_ISSUE|UNCERTAIN|NOT_APPLICABLE",
+    "confidence": "0..1|null",
+    "evidence_image_id": "string|null",
+    "explanation": "string",
+    "officer_review_required": "boolean"
+  },
+  "scoring": {
+    "type": "application screening score only",
+    "important": "The supplied Rules do not define a 0-100 compliance score. SmartPack may calculate a screening/risk score, but it must not be presented as a statutory legal score."
+  }
+}

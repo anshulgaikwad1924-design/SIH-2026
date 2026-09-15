@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String       @id @default(cuid())
+  role        String       // "CUSTOMER", "OFFICER"
+  name        String
+  email       String       @unique
+  scans       Scan[]
+  complaints  Complaint[]
+  inspections Inspection[]
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  barcode     String   @unique
+  name        String
+  category    String
+  rulesJson   String   // JSON string of expected fields and rules
+  scans       Scan[]
+}
+
+model Scan {
+  id             String            @id @default(cuid())
+  productId      String
+  product        Product           @relation(fields: [productId], references: [id])
+  userId         String?
+  user           User?             @relation(fields: [userId], references: [id])
+  timestamp      DateTime          @default(now())
+  imageUrl       String?
+  score          Int
+  status         String            // "Likely Compliant", "Needs Review", "Potential Non-Compliance"
+  aiExplanation  String?
+  extracted      ExtractedField[]
+  complaints     Complaint[]
+  inspections    Inspection[]
+}
+
+model ExtractedField {
+  id            String   @id @default(cuid())
+  scanId        String
+  scan          Scan     @relation(fields: [scanId], references: [id])
+  fieldName     String
+  detectedValue String?
+  status        String   // "MATCH", "MISMATCH", "NOT_FOUND"
+}
+
+model Complaint {
+  id          String   @id @default(cuid())
+  scanId      String
+  scan        Scan     @relation(fields: [scanId], references: [id])
+  customerId  String
+  customer    User     @relation(fields: [customerId], references: [id])
+  status      String   // "NEW", "IN_PROGRESS", "RESOLVED"
+  description String
+  timestamp   DateTime @default(now())
+}
+
+model Inspection {
+  id          String   @id @default(cuid())
+  scanId      String
+  scan        Scan     @relation(fields: [scanId], references: [id])
+  officerId   String
+  officer     User     @relation(fields: [officerId], references: [id])
+  finalStatus String   // "VERIFIED", "REQUIRES INVESTIGATION", "NOT VERIFIED"
+  notes       String?
+  timestamp   DateTime @default(now())
+}
