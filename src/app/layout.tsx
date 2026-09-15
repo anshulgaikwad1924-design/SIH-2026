@@ -27,7 +27,7 @@ export default function RootLayout({
               <Link href="/history" style={{ color: 'white', fontSize: '14px', fontWeight: 500 }}>History</Link>
               <Link href="/customer/dashboard" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', fontWeight: 500 }}>Customer Portal</Link>
               <Link href="/officer/dashboard" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', fontWeight: 500 }}>Officer Portal</Link>
-              <Link href="/api/auth/signin" className="btn btn-secondary" style={{ padding: '6px 14px', fontSize: '13px' }}>Login</Link>
+              <Link href="/customer/dashboard" className="btn btn-secondary" style={{ padding: '6px 14px', fontSize: '13px' }}>Login (Mock)</Link>
             </div>
           </nav>
           <main className="main-content">

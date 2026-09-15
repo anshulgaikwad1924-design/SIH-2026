@@ -1,5 +1,5 @@
 'use client';
-import { SessionProvider } from 'next-auth/react';
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <SessionProvider>{children}</SessionProvider>;
+  // SessionProvider removed for static site export (no backend)
+  return <>{children}</>;
 }
